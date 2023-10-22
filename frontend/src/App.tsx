@@ -47,7 +47,7 @@ function App() {
       <main className="w-full flex justify-center items-center h-[100vh]">
         <div className="w-[30rem] p-6 shadow-2xl rounded-xl flex flex-col gap-3 bg-[#f9f9f9] relative">
           {loading && (
-            <div className="absolute top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.1)] z-20 flex justify-center items-center">
+            <div className="absolute top-0 left-0 w-full rounded-xl h-full bg-[rgba(0,0,0,0.1)] z-20 flex justify-center items-center">
               <Loader />
             </div>
           )}
