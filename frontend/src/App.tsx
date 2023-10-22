@@ -10,6 +10,7 @@ type DataState = {
 function App() {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const [data, setData] = useState<DataState>();
   const TextToSpeech = (data: string) => {
     const synth = window.speechSynthesis;
@@ -35,9 +36,10 @@ function App() {
         TextToSpeech(`${result.name} is for ${result.price}`);
       } else {
         console.error("Failed to send data");
+        setError(true);
       }
     } catch (err) {
-      console.error(err);
+      setError(true);
     } finally {
       setLoading(false);
     }
@@ -90,6 +92,7 @@ function App() {
               </div>
             </div>
           )}
+          {error && <p>No result found for {search}</p>}
         </div>
       </main>
     </>
